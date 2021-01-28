@@ -1,0 +1,11 @@
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: rails
+  namespace: demo
+  labels:
+    app: rails
+spec:
+  backend:
+    serviceName: rails
+    servicePort: 80
