@@ -4,6 +4,7 @@ metadata:
   labels:
     app: rails
   name: rails
+  namespace: demo
 spec:
   ports:
     - port: 80

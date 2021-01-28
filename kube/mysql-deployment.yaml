@@ -16,8 +16,10 @@ spec:
         app: mysql
     spec:
       containers:
-        - image: mysql:8.0.23
+        - image: mysql:5.7.33
           name: mysql
+          args:
+            - "--ignore-db-dir=lost+found"
           ports:
             - containerPort: 3306
           volumeMounts:
@@ -26,7 +28,11 @@ spec:
           env:
             - name: MYSQL_DATABASE
               value: demo_production
+            - name: MYSQL_USER
+              value: demo
             - name: MYSQL_ROOT_PASSWORD
+              value: password
+            - name: MYSQL_PASSWORD
               valueFrom:
                 secretKeyRef:
                   name: mysql-secrets
